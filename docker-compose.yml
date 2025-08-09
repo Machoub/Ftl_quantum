@@ -1,0 +1,15 @@
+services:
+  quantum:
+    image: quantum_image
+    container_name: quantum_container
+    init: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888"
+    environment:
+      - IBM_API_KEY=${IBM_API_KEY}
+      - CRN=${CRN}
+    volumes:
+      - ./exercices:/home/quantum_42/exercices
